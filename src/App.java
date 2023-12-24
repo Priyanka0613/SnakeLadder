@@ -9,7 +9,12 @@ public class App {
         Random rand = new Random();
         int choose = rand.nextInt(3); //0->no; 1->ladder; 2->snake
         while (pos<=100) {
-            if(choose==1){pos+=number;}
+            if(choose==1){
+                if(pos+number<100){
+                    pos=pos+number;
+                }
+                else if(pos+number==100){System.out.println("WON!");}
+            }
             else if(choose==2 && pos-number>=0){pos-=number;}
         }
     }
